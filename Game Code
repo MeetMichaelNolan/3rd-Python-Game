@@ -1,0 +1,63 @@
+import random
+import time
+
+user_wins = 0
+computer_wins = 0
+options = ["rock", "paper", "scissors"]
+print("Welcome to Rock, Paper, Scissors vs WILSON the Artificial Intelligence built by King Michael Hugh Nolan IV!")
+time.sleep(2)
+print("Play by typing Rock/Paper/Scissors below. Quit any time by typing Q.")
+
+while True:
+    user_input = input().lower()
+    if user_input == "q":
+        break
+
+    if user_input not in options:
+        print("Not a valid argument. Try again.")
+        continue
+
+    random_number = random.randint(0, 2)
+    # Rock = 0, Paper = 1, Scissors = 2
+    computer_guess = options[random_number]
+    print("Computer: " + computer_guess + ".")
+
+    if user_input == computer_guess:
+        time.sleep(0.75)
+        print("It's a tie! Try again.")
+        continue
+
+    if user_input == "rock" and computer_guess == "scissors":
+        user_wins += 1
+        time.sleep(0.75)
+        print("You won this time, but let's run it back. I won't lose again!")
+        continue
+
+    if user_input == "paper" and computer_guess == "rock":
+        user_wins += 1
+        time.sleep(0.75)
+        print("Won again, wow. But never again..")
+        continue
+
+    if user_input == "scissors" and computer_guess == "paper":
+        user_wins += 1
+        time.sleep(0.75)
+        print("I can't seem to be able to catch a break, you win!")
+        continue
+
+    else:
+        computer_wins += 1
+        time.sleep(0.75)
+        print("YOU LOST TO A COMPUTER HAHAHA. YOU SHOULD GIVE UP, TYPE IN Q!")
+        continue
+
+print("You won " + str(user_wins) + " times. And the computer won " + str(computer_wins) + " times.")
+time.sleep(2)
+if computer_wins > user_wins:
+    print("You kind of suck for letting a COMPUTER PROGRAM BEAT YOU!")
+elif computer_wins == user_wins:
+    print("We may have tied in games won but just wait till I am fully optimized... Then I beat you in my sleep. RARRR")
+else:
+    print("You beat me this time but... I will use this experience to run millions of games to fully optimize my intelligence in an effort to beat you.")
+time.sleep(2.5)
+print("GOODBYE!")
